@@ -1,0 +1,15 @@
+Package: AikoR
+Version: 0.0.1
+Architecture: amd64
+Maintainer: AikoCute
+Pre-depends: 
+Depends: 
+Recommends: AikoR
+Installed-Size: 22.27MB
+Section: net
+Priority: extra
+Homepage: https://github.com/AikoCute-Offical/AikoR
+Suggests:
+Provides: AikoCute, AikoR
+Description: Project AikoR
+ Project AikoR is a set of network tools that help you to build your own computer network. It secures your network connections and thus protects your privacy. See our website for more information.

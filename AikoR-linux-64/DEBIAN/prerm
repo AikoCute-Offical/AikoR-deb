@@ -1,0 +1,5 @@
+#!/bin/bash
+
+unlink /etc/AikoR/aiko.yml
+systemctl stop AikoR
+systemctl disable AikoR

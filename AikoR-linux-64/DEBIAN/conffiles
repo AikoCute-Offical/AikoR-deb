@@ -1,0 +1,7 @@
+/etc/AikoR/AikoBlock
+/etc/AikoR/AikoR
+/etc/AikoR/custom_inbound.json
+/etc/AikoR/custom_outbound.json
+/etc/AikoR/dns.json
+/etc/AikoR/route.json
+/etc/systemd/system/AikoR.service

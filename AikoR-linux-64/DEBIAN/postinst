@@ -1,0 +1,12 @@
+#!/bin/bash
+
+cd /etc/AikoR
+
+if [ -f /etc/AikoR/config.json ]; then
+  ln -is aiko.yml aiko.yml
+else
+  ln -s aiko.yml aiko.yml
+fi
+
+systemctl enable AikoR
+systemctl start AikoR
