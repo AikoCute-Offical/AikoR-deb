@@ -3,8 +3,9 @@
 old=`grep "^Version:" ./AikoR-linux-64/DEBIAN/control | cut -d ' ' -f2`
 version=`curl -s https://api.github.com/repos/AikoCute-Offical/AikoR/releases/latest | grep "tag_name" | cut -d '"' -f4`
 [[ $1 > '0.0.1' ]] && version=$1
-[[ $version == $old ]] && exit 0
-wget https://github.com/AikoCute-Offical/AikoR/releases/download/${version}/AikoR-linux-64.zip || exit 1
+name='AikoR'
+[[ $1 > '0.0.1' ]] && name='AikoR'
+wget https://github.com/AikoCute-Offical/AikoR/releases/download/"${version}"/AikoR-linux-64.zip || exit 1
 unzip AikoR-linux-64.zip -d AikoR-linux-64
 cp -v ./AikoR-linux-64/AikoR ./AikoR-linux-64/usr/bin/AikoR/
 cp -v ./AikoR-linux-64/geoip.dat ./AikoR-linux-64/usr/bin/AikoR/
