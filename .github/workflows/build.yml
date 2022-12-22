@@ -11,13 +11,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: build AikoR deb
+      - name: build
         run: |
           ./build.sh
-
-      - name: upload AikoR deb
+      - name: upload
         uses: actions/upload-artifact@v2
         with:
-          name: AikoR
-          path: AikoR.deb
+          name: build
+          path: build
 
