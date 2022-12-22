@@ -11,17 +11,30 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - name: build
+      - name: Checkout codebase
+        uses: actions/checkout@v2.4.0
+
+      - name: Set up Go
+        uses: actions/setup-go@v3
+        with:
+          go-version: 1.19
+
+      - name: Get project dependencies
+        run: go mod download
+
+      - name: Build AikoR
+        run: |
+          mkdir -p build_assets
+          go build -v -o AikoR-linux-64/etc/AikoR -trimpath -ldflags "-s -w -buildid=" ./AikoR/AikoR
+
+      - name: Build DEB
         run: |
           chmod +x build.sh
           ./build.sh
+      
       - name: upload
         uses: actions/upload-artifact@v2
         with:
-          name: build
-          path: build
-      - name: update
-        run: |
-          chmod +x update.sh
-          ./update.sh
+          name: AikoR-linux-64
+          path: ./AikoR-linux-64/*
+
