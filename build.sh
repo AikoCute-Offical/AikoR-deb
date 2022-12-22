@@ -10,4 +10,4 @@ rm -rf AikoR-linux-64.zip || exit 1
 dpkg -b ./AikoR-linux-64/ AikoR-"${version}"-amd64.deb || exit 1
 
 # rename Version number from file : /AikoR-linux-64/DEBIAN/control
-sed -i "s/Version: 1.0.0/Version: ${version}/g" ./AikoR-linux-64/DEBIAN/control || exit 1
+sed -i "s|Version:.*|Version: ${version}|" ./AikoR-linux-64/DEBIAN/control || exit 1
