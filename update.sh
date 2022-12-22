@@ -1,7 +1,8 @@
 #!/bin/bash
 
 old=`grep "^Version:" ./AikoR-linux-64/DEBIAN/control | cut -d ' ' -f2`
-version=$1
+version=`curl -s https://api.github.com/repos/AikoCute-Offical/AikoR/releases/latest | grep "tag_name" | cut -d '"' -f4`
+[[ $1 > '0.0.1' ]] && version=$1
 name='AikoR'
 [[ $1 > '0.0.1' ]] && name='AikoR'
 wget https://github.com/AikoCute-Offical/AikoR/releases/download/v"${version}"/AikoR-linux-64.zip || exit 1
