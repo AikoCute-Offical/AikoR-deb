@@ -1,0 +1,22 @@
+name: build test
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+    paths:
+      - "build.sh"
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: build
+        run: |
+          ./build.sh
+      - name: upload
+        uses: actions/upload-artifact@v2
+        with:
+          name: build
+          path: build
+
