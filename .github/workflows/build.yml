@@ -19,15 +19,11 @@ jobs:
         with:
           go-version: 1.19
 
-      - name: Get project dependencies
-        run: |
-          cd AikoR
-          go mod download
-
       - name: Build AikoR
         run: |
           cd AikoR
-          go build -v -o AikoR-linux-64/etc/AikoR -trimpath -ldflags "-s -w -buildid=" ./AikoR
+          go build -v -o AikoR-linux-64/AikoR -trimpath -ldflags "-s -w -buildid=" ./AikoR
+          cp -r ./AikoR-linux-64/AikoR ./AikoR-linux-64/etc/AikoR
 
       - name: Build DEB
         run: |
